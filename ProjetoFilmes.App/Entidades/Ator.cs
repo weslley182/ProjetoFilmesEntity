@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoFilmes.App.Entidades
 {
@@ -8,10 +9,12 @@ namespace ProjetoFilmes.App.Entidades
         [Column("Actor_Id")]
         public int Id { get; set; }
 
-        [Column("First_Name")]
+        [Required]
+        [Column("First_Name", TypeName = "Varchar(45)")]
         public string PrimeiroNome { get; set; }
         
-        [Column("Last_Name")]
+        [Required]
+        [Column("Last_Name", TypeName = "varchar(45)")]        
         public string UltimoNome { get; set; }
 
         public override string ToString()
