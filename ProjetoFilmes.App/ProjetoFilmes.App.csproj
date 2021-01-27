@@ -133,6 +133,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dados\Builder\ModelBuiderAtor.cs" />
     <Compile Include="Entidades\Ator.cs" />
     <Compile Include="Dados\FilmesContext.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />

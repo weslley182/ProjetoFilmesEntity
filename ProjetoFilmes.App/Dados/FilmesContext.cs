@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjetoFilmes.App.Dados.Builder;
 using ProjetoFilmes.App.Entidades;
 
 namespace ProjetoFilmes.App.Dados
@@ -11,6 +12,13 @@ namespace ProjetoFilmes.App.Dados
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ProjetoFilmes;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            ModelBuiderAtor.ConfigurarAtor(modelBuilder);
+        }
+
+        
     }
 
     
