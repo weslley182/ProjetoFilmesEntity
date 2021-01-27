@@ -134,9 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dados\Builder\ModelBuiderAtor.cs" />
+    <Compile Include="DAO\AtorDAO.cs" />
     <Compile Include="Entidades\Ator.cs" />
     <Compile Include="Dados\FilmesContext.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Interface\IAtorDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,5 +1,7 @@
 ﻿using System;
 using ProjetoFilmes.App.Dados;
+using ProjetoFilmes.App.DAO;
+using ProjetoFilmes.App.Entidades;
 
 namespace ProjetoFilmes.App
 {
@@ -7,15 +9,19 @@ namespace ProjetoFilmes.App
     {
         static void Main(string[] args)
         {
-            using (var repo = new FilmesContext())
+            var ator = new Ator();
+            ator.PrimeiroNome = "Tom";
+            ator.UltimoNome = "Hanks";
+
+            var dao = new AtorDAO();
+
+            dao.Adicionar(ator);
+            Console.ReadKey();
+
+            foreach(var at in dao.Atores())
             {
-                foreach(var ator in repo.Atores)
-                {
-                    Console.WriteLine(ator);
-                }
-                Console.ReadKey();
+                Console.WriteLine(at);
             }
-            
         }
     }
 }

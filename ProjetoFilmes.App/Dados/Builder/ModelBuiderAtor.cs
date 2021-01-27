@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoFilmes.App.Entidades;
+using System;
 
 namespace ProjetoFilmes.App.Dados.Builder
 {
@@ -25,7 +26,12 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .HasColumnName("last_Name")
                 .HasColumnType("Varchar(45)")
                 .IsRequired();
-
+            
+            //Shadow Property
+            modelBuilder.Entity<Ator>()
+                .Property<DateTime>("Last_Update")
+                .HasColumnType("DateTime")
+                .IsRequired();
         }
     }
 }
