@@ -31,6 +31,7 @@ namespace ProjetoFilmes.App.Dados.Builder
             modelBuilder.Entity<Ator>()
                 .Property<DateTime>("Last_Update")
                 .HasColumnType("DateTime")
+                .HasDefaultValue(DateTime.Now)
                 .IsRequired();
         }
     }

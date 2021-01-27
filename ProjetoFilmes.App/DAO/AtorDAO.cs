@@ -20,14 +20,14 @@ namespace ProjetoFilmes.App.DAO
         public void Adicionar(Ator ator)
         {
             _context.Atores.Add(ator);
-            _context.Entry(ator).Property("Last_Update").CurrentValue = DateTime.Now;
+            // _context.Entry(ator).Property("Last_Update").CurrentValue = DateTime.Now;
 
             _context.SaveChanges();
         }
         public void Atualizar(Ator ator)
         {
             _context.Atores.Update(ator);
-            _context.Entry(ator).Property("Last_Update").CurrentValue = DateTime.Now;
+            //_context.Entry(ator).Property("Last_Update").CurrentValue = DateTime.Now;
             _context.SaveChanges();
         }
 
