@@ -44,7 +44,7 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .IsRequired();
 
             builder.Property<byte>("language_id");
-            builder.Property<byte>("original_language_id");
+            builder.Property<byte?>("original_language_id");
 
             builder
                 .HasOne(f => f.IdiomaFalado)

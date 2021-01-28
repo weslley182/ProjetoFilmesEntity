@@ -16,15 +16,18 @@ namespace ProjetoFilmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var idiomas = contexto.Idiomas.ToList();
+                var idiomas = contexto.Idiomas
+                    .Include(i => i.FilmesFalados);
 
-
-
-                foreach (var c in idiomas)
+                foreach (var idioma in idiomas)
                 {
+                    Console.WriteLine(idioma);
 
-                    Console.WriteLine(c);
-
+                    foreach (var filme in idioma.FilmesFalados)
+                    {
+                        Console.WriteLine(filme);
+                    }
+                    Console.WriteLine("\n");
                 }
 
                 Console.ReadKey();
