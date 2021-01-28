@@ -11,13 +11,13 @@ namespace ProjetoFilmes.App.Dados.Builder
         {
             builder
                 .ToTable("Film_Actor");
+
             //shadow
             builder
                 .Property<int>("Film_Id");
             
             builder
-                .Property<int>("Actor_Id");
-            
+                .Property<int>("Actor_Id");            
             
             builder
                 .Property<DateTime>("Last_Update")

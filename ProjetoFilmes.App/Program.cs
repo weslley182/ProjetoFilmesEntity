@@ -10,7 +10,7 @@ namespace ProjetoFilmes.App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             using (var contexto = new FilmesContext())
             {

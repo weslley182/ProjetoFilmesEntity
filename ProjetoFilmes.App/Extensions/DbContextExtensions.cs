@@ -49,7 +49,7 @@ namespace Alura.Filmes.App.Extensions
 
         internal class SqlServerLoggerProvider : ILoggerProvider
         {
-            private IList<string> categoriasASeremLogadas = new List<string>
+            private readonly IList<string> categoriasASeremLogadas = new List<string>
             {
                 DbLoggerCategory.Model.Name,
                 DbLoggerCategory.Database.Command.Name,
