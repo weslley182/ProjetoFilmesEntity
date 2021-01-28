@@ -15,6 +15,8 @@ namespace ProjetoFilmes.App.Entidades
         public short Duracao { get; set; }
         public IList<FilmeAtor> Atores { get; set; }
         public IList<FilmeCategoria> Categorias { get; set; }
+        public Idioma IdiomaFalado { get; set; }
+        public Idioma IdiomaOriginal { get; set; }
 
         public Filme()
         {
