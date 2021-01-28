@@ -11,6 +11,8 @@ namespace ProjetoFilmes.App.Dados
         public DbSet<FilmeAtor> Elenco { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Idioma> Idiomas { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {            
@@ -27,6 +29,8 @@ namespace ProjetoFilmes.App.Dados
             modelBuilder.ApplyConfiguration(new ModelBuilderCategoria());
             modelBuilder.ApplyConfiguration(new ModelBuilderFilmeCategoria());
             modelBuilder.ApplyConfiguration(new ModelBuilderIdioma());
+            modelBuilder.ApplyConfiguration(new ModelBuilderCliente());
+            modelBuilder.ApplyConfiguration(new ModelBuilderFuncionario());            
         }        
     }    
 }

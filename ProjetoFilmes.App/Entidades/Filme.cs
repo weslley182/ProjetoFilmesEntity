@@ -1,8 +1,6 @@
-﻿using System;
+﻿using ProjetoFilmes.App.Enumerado;
+using ProjetoFilmes.App.Extensions;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoFilmes.App.Entidades
 {
@@ -13,7 +11,12 @@ namespace ProjetoFilmes.App.Entidades
         public string Descricao { get; set; }
         public string AnoLancamento { get; set; }
         public short Duracao { get; set; }
-        public string Classificacao { get; set; }
+        public string TextoClassificacao { get; private set; }
+        public ClassificacaoIndicativa Classificacao
+        {
+            get { return TextoClassificacao.ParaValor(); }
+            set { TextoClassificacao = value.ParaString(); }
+        }
         public IList<FilmeAtor> Atores { get; set; }
         public IList<FilmeCategoria> Categorias { get; set; }
         public Idioma IdiomaFalado { get; set; }

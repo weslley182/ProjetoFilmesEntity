@@ -9,8 +9,7 @@ namespace ProjetoFilmes.App.Dados.Builder
     {
         public void Configure(EntityTypeBuilder<Filme> builder)
         {
-            builder
-                .ToTable("Film");
+            builder.ToTable("Film");
 
             builder
                 .Property(f => f.Id)
@@ -57,9 +56,11 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .HasForeignKey("Original_Language_Id");
 
             builder
-                .Property(f => f.Classificacao)
+                .Property(f => f.TextoClassificacao)
                 .HasColumnName("Rating")
                 .HasColumnType("Varchar(10)");
+
+            builder.Ignore(f => f.Classificacao);
         }
     }
 }
