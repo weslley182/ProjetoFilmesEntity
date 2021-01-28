@@ -21,8 +21,36 @@ namespace ProjetoFilmes.App
                 contexto.LogSQLToConsole();
 
                 //SelecaoEntity(contexto);
+                SelecaoFrom(contexto);
 
                 Console.ReadKey();
+            }
+        }
+
+        private static void SelecaoFrom(FilmesContext contexto)
+        {
+            const string sql =
+                @"select a.*
+                    from actor a
+                        inner join
+                    (select top 5 a.actor_id, count(*) as total
+                    from actor a
+                        inner join film_actor fa on fa.actor_id = a.actor_id
+                    group by a.actor_id
+                    order by total desc) filmes on filmes.actor_id = a.actor_id";
+
+            const string sqlComView =
+                 @"select a.* from actor a
+                    inner join top5_most_starred_actors filmes on filmes.actor_id = a.actor_id";
+
+            var atoresMaisAtuantes = contexto.Atores
+                .FromSql(sqlComView)
+                .Include(a => a.Filmografia);
+                
+
+            foreach (var ator in atoresMaisAtuantes)
+            {
+                Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes.");
             }
         }
 
