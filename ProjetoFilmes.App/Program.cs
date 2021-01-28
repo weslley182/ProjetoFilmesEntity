@@ -15,30 +15,22 @@ namespace ProjetoFilmes.App
         static void Main()
         {
 
-            
-            Console.WriteLine(ClassificacaoIndicativa.Livre.ParaString());
-            Console.WriteLine("G".ParaValor());
-            Console.ReadKey();
-            //using (var contexto = new FilmesContext())
-            //{
-            //    contexto.LogSQLToConsole();
 
-            //    var idiomas = contexto.Idiomas
-            //        .Include(i => i.FilmesFalados);
+            using (var contexto = new FilmesContext())
+            {
+                contexto.LogSQLToConsole();
 
-            //    foreach (var idioma in idiomas)
-            //    {
-            //        Console.WriteLine(idioma);
+                var atoresMaisAtuantes = contexto.Atores
+                    .Include(a => a.Filmografia)
+                    .OrderByDescending(a => a.Filmografia.Count)
+                    .Take(5);
 
-            //        foreach (var filme in idioma.FilmesFalados)
-            //        {
-            //            Console.WriteLine(filme);
-            //        }
-            //        Console.WriteLine("\n");
-            //    }
-
-            //    Console.ReadKey();
-            //}
+                foreach (var ator in atoresMaisAtuantes)
+                {
+                    Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes");
+                }
+                Console.ReadKey();
+            }
         }
     }
 }

@@ -16,8 +16,8 @@ namespace ProjetoFilmes.App.Dados
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {            
-            //const string NomeBanco = "ProjetoFilmes";
-            const string NomeBanco = "ProjetoFilmesTeste";
+            const string NomeBanco = "ProjetoFilmes";
+            //const string NomeBanco = "ProjetoFilmesTeste";
             optionsBuilder.UseSqlServer($"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={NomeBanco};Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
