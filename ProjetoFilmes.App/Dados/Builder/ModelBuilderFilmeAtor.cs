@@ -31,12 +31,12 @@ namespace ProjetoFilmes.App.Dados.Builder
             builder
                 .HasOne(fa => fa.Filme)
                 .WithMany(f => f.Atores)
-                .HasForeignKey("film_id");
+                .HasForeignKey("Film_Id");
 
             builder
                 .HasOne(fa => fa.Ator)
                 .WithMany(a => a.Filmografia)
-                .HasForeignKey("actor_id");
+                .HasForeignKey("Actor_Id");
 
         }
     }

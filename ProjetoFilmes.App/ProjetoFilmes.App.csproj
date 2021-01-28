@@ -150,6 +150,11 @@
     <Compile Include="Entidades\Idioma.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interface\IDAO.cs" />
+    <Compile Include="Migrations\20210128151659_Criacao.cs" />
+    <Compile Include="Migrations\20210128151659_Criacao.designer.cs">
+      <DependentUpon>20210128151659_Criacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\FilmesContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -162,7 +167,6 @@
     <Content Include="Scripts\alurafilmes-estrutura.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Negocio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

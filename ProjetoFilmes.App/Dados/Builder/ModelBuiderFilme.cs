@@ -43,18 +43,23 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .HasDefaultValue(DateTime.Now)
                 .IsRequired();
 
-            builder.Property<byte>("language_id");
-            builder.Property<byte?>("original_language_id");
+            builder.Property<byte>("Language_Id");
+            builder.Property<byte?>("Original_Language_Id");
 
             builder
                 .HasOne(f => f.IdiomaFalado)
                 .WithMany(i => i.FilmesFalados)
-                .HasForeignKey("language_id");
+                .HasForeignKey("Language_Id");
 
             builder
                 .HasOne(f => f.IdiomaOriginal)
                 .WithMany(i => i.FilmesOriginais)
-                .HasForeignKey("original_language_id");
+                .HasForeignKey("Original_Language_Id");
+
+            //builder
+            //    .Property(f => f.Classificacao)
+            //    .HasColumnName("Rating")
+            //    .HasColumnType("Varchar(10)");
         }
     }
 }

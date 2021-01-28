@@ -24,7 +24,7 @@ namespace ProjetoFilmes.App.Dados.Builder
 
             builder
                 .Property(a => a.UltimoNome)
-                .HasColumnName("last_Name")
+                .HasColumnName("Last_Name")
                 .HasColumnType("Varchar(45)")
                 .IsRequired();
             
