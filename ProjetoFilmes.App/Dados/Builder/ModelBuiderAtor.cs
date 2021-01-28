@@ -34,6 +34,10 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .HasColumnType("DateTime")
                 .HasDefaultValue(DateTime.Now)
                 .IsRequired();
+
+            builder
+                .HasIndex(a => a.UltimoNome)
+                .HasName("idx_actor_last_name");
         }
     }
 }
