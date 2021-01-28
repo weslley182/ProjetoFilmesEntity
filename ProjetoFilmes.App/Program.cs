@@ -9,17 +9,11 @@ namespace ProjetoFilmes.App
     {
         static void Main(string[] args)
         {
-            var ator = new Ator();
-            ator.PrimeiroNome = "Silvia";
-            ator.UltimoNome = "Saint";
+            var dao = new FilmeDAO();
 
-            var dao = new AtorDAO();
-
-            dao.Adicionar(ator);            
-
-            foreach(var at in dao.Atores())
+            foreach(var item in dao.ListarTodos())
             {
-                Console.WriteLine(at);
+                Console.WriteLine(item);
             }
 
             Console.ReadKey();

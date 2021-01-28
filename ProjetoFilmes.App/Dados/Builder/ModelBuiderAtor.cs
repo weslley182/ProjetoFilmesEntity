@@ -1,34 +1,35 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProjetoFilmes.App.Entidades;
 using System;
 
 namespace ProjetoFilmes.App.Dados.Builder
 {
-    class ModelBuiderAtor
+    class ModelBuiderAtor: IEntityTypeConfiguration<Ator>
     {
-        public static void ConfigurarAtor(ModelBuilder modelBuilder)
+        public void Configure(EntityTypeBuilder<Ator> builder)
         {
-            modelBuilder.Entity<Ator>()
-                            .ToTable("Actor");
+            builder
+                .ToTable("Actor");
 
-            modelBuilder.Entity<Ator>()
+            builder
                 .Property(a => a.Id)
                 .HasColumnName("Actor_Id");
 
-            modelBuilder.Entity<Ator>()
+            builder
                 .Property(a => a.PrimeiroNome)
                 .HasColumnName("First_Name")
                 .HasColumnType("Varchar(45)")
                 .IsRequired();
 
-            modelBuilder.Entity<Ator>()
+            builder
                 .Property(a => a.UltimoNome)
                 .HasColumnName("last_Name")
                 .HasColumnType("Varchar(45)")
                 .IsRequired();
             
             //Shadow Property
-            modelBuilder.Entity<Ator>()
+            builder
                 .Property<DateTime>("Last_Update")
                 .HasColumnType("DateTime")
                 .HasDefaultValue(DateTime.Now)

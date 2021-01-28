@@ -3,13 +3,13 @@ using ProjetoFilmes.App.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProjetoFilmes.App.Interface;
+using Alura.Filmes.App.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoFilmes.App.DAO
 {
-    class AtorDAO: IAtorDAO, IDisposable
+    class AtorDAO: IDAO<Ator>, IDisposable
     {
         private readonly FilmesContext _context;
         public AtorDAO()
@@ -42,9 +42,19 @@ namespace ProjetoFilmes.App.DAO
             _context.SaveChanges();
         }
 
-        public IList<Ator> Atores()
+        public IList<Ator> ListarTodos()
         {
             return _context.Atores.ToList();
+        }
+
+        public IQueryable<Ator> BuscarUltimosAtoresInseridos(int quantidade)
+        {
+            _context.LogSQLToConsole();
+            //listar os 10 atores modificados recentemente 
+            return _context.Atores
+                .OrderByDescending(a => EF.Property<DateTime>(a, "Last_Update"))
+                .Take(quantidade);
+
         }
     }
 }
