@@ -13,7 +13,12 @@ namespace ProjetoFilmes.App.Entidades
         public string Descricao { get; set; }
         public string AnoLancamento { get; set; }
         public short Duracao { get; set; }
+        public IList<FilmeAtor> Atores { get; set; }
 
+        public Filme()
+        {
+            Atores = new List<FilmeAtor>();
+        }
         public override string ToString()
         {
             return $"Filme: {Titulo}, Ano: {AnoLancamento}, Duração :{Duracao}";

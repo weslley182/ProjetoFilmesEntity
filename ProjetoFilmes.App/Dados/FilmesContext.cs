@@ -8,6 +8,7 @@ namespace ProjetoFilmes.App.Dados
     {
         public DbSet<Ator> Atores { get; set; }
         public DbSet<Filme> Filmes { get; set; }
+        public DbSet<FilmeAtor> Elenco { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,6 +19,7 @@ namespace ProjetoFilmes.App.Dados
         {
             modelBuilder.ApplyConfiguration(new ModelBuiderAtor());
             modelBuilder.ApplyConfiguration(new ModelBuiderFilme());
+            modelBuilder.ApplyConfiguration(new ModelBuilderFilmeAtor());
         }        
     }    
 }
