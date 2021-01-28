@@ -135,13 +135,17 @@
   <ItemGroup>
     <Compile Include="Dados\Builder\ModelBuiderAtor.cs" />
     <Compile Include="Dados\Builder\ModelBuiderFilme.cs" />
+    <Compile Include="Dados\Builder\ModelBuilderFilmeCategoria.cs" />
+    <Compile Include="Dados\Builder\ModelBuilderCategoria.cs" />
     <Compile Include="Dados\Builder\ModelBuilderFilmeAtor.cs" />
     <Compile Include="DAO\AtorDAO.cs" />
     <Compile Include="DAO\FilmeDAO.cs" />
     <Compile Include="Entidades\Ator.cs" />
     <Compile Include="Dados\FilmesContext.cs" />
+    <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Filme.cs" />
     <Compile Include="Entidades\FilmeAtor.cs" />
+    <Compile Include="Entidades\FilmeCategoria.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interface\IDAO.cs" />
     <Compile Include="Program.cs" />
