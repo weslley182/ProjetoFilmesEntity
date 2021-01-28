@@ -40,7 +40,7 @@ namespace ProjetoFilmes.App.Dados.Builder
             builder
                 .Property<DateTime>("Last_Update")
                 .HasColumnType("DateTime")
-                .HasDefaultValue(DateTime.Now)
+                .HasDefaultValueSql("GetDate()")
                 .IsRequired();
 
             builder.Property<byte>("Language_Id");
@@ -56,10 +56,10 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .WithMany(i => i.FilmesOriginais)
                 .HasForeignKey("Original_Language_Id");
 
-            //builder
-            //    .Property(f => f.Classificacao)
-            //    .HasColumnName("Rating")
-            //    .HasColumnType("Varchar(10)");
+            builder
+                .Property(f => f.Classificacao)
+                .HasColumnName("Rating")
+                .HasColumnType("Varchar(10)");
         }
     }
 }

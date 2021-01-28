@@ -154,6 +154,18 @@
     <Compile Include="Migrations\20210128151659_Criacao.designer.cs">
       <DependentUpon>20210128151659_Criacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210128152704_alteracao_data.cs" />
+    <Compile Include="Migrations\20210128152704_alteracao_data.designer.cs">
+      <DependentUpon>20210128152704_alteracao_data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210128154756_tabelas_check.cs" />
+    <Compile Include="Migrations\20210128154756_tabelas_check.designer.cs">
+      <DependentUpon>20210128154756_tabelas_check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210128154841_check.cs" />
+    <Compile Include="Migrations\20210128154841_check.designer.cs">
+      <DependentUpon>20210128154841_check.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\FilmesContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

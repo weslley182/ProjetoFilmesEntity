@@ -11,9 +11,10 @@ using System;
 namespace ProjetoFilmes.App.Migrations
 {
     [DbContext(typeof(FilmesContext))]
-    partial class FilmesContextModelSnapshot : ModelSnapshot
+    [Migration("20210128154841_check")]
+    partial class check
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

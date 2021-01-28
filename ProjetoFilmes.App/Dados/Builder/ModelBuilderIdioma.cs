@@ -24,7 +24,7 @@ namespace ProjetoFilmes.App.Dados.Builder
             builder
                 .Property<DateTime>("Last_Update")
                 .HasColumnType("DateTime")
-                .HasDefaultValue(DateTime.Now);
+                .HasDefaultValueSql("GetDate()");
         }
     }
 }

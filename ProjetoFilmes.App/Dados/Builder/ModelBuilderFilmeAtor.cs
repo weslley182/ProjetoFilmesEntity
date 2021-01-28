@@ -23,7 +23,7 @@ namespace ProjetoFilmes.App.Dados.Builder
                 .Property<DateTime>("Last_Update")
                 .IsRequired()
                 .HasColumnType("DateTime")
-                .HasDefaultValue(DateTime.Now);
+                .HasDefaultValueSql("GetDate()");
             //shadow
 
             builder.HasKey("Film_Id", "Actor_Id");

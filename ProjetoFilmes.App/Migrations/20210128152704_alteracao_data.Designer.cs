@@ -11,9 +11,10 @@ using System;
 namespace ProjetoFilmes.App.Migrations
 {
     [DbContext(typeof(FilmesContext))]
-    partial class FilmesContextModelSnapshot : ModelSnapshot
+    [Migration("20210128152704_alteracao_data")]
+    partial class alteracao_data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,10 +81,6 @@ namespace ProjetoFilmes.App.Migrations
                     b.Property<string>("AnoLancamento")
                         .HasColumnName("Release_Year")
                         .HasColumnType("Varchar(4)");
-
-                    b.Property<string>("Classificacao")
-                        .HasColumnName("Rating")
-                        .HasColumnType("Varchar(10)");
 
                     b.Property<string>("Descricao")
                         .HasColumnName("Description")
