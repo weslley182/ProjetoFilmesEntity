@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Linq;
 using Alura.Filmes.App.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +22,30 @@ namespace ProjetoFilmes.App
                 contexto.LogSQLToConsole();
 
                 //SelecaoEntity(contexto);
-                SelecaoFrom(contexto);
+                //SelecaoFrom(contexto);
+                ExemploStoredProcedure(contexto);
 
                 Console.ReadKey();
             }
+        }
+
+        private static void ExemploStoredProcedure(FilmesContext contexto)
+        {
+            var categ = "Action"; //36
+
+            var paramCateg = new SqlParameter("category_name", categ);
+
+            var paramTotal = new SqlParameter
+            {
+                ParameterName = "@total_actors",
+                Size = 4,
+                Direction = System.Data.ParameterDirection.Output
+            };
+
+            contexto.Database
+                .ExecuteSqlCommand("total_actors_from_given_category @category_name, @total_actors OUT", paramCateg, paramTotal);
+
+            Console.WriteLine($"O total de atores na categoria {categ} é de {paramTotal.Value}.");
         }
 
         private static void SelecaoFrom(FilmesContext contexto)
@@ -46,7 +67,7 @@ namespace ProjetoFilmes.App
             var atoresMaisAtuantes = contexto.Atores
                 .FromSql(sqlComView)
                 .Include(a => a.Filmografia);
-                
+
 
             foreach (var ator in atoresMaisAtuantes)
             {
