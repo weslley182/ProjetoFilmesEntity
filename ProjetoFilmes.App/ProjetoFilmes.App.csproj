@@ -148,6 +148,8 @@
     <Compile Include="Entidades\FilmeAtor.cs" />
     <Compile Include="Entidades\FilmeCategoria.cs" />
     <Compile Include="Entidades\Idioma.cs" />
+    <Compile Include="Enumerado\ClassificacaoIndicativa.cs" />
+    <Compile Include="Extensions\ClassificacaoIndicativaExtensions.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Interface\IDAO.cs" />
     <Compile Include="Migrations\20210128151659_Criacao.cs" />
