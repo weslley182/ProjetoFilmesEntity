@@ -20,16 +20,22 @@ namespace ProjetoFilmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var atoresMaisAtuantes = contexto.Atores
-                    .Include(a => a.Filmografia)
-                    .OrderByDescending(a => a.Filmografia.Count)
-                    .Take(5);
+                //SelecaoEntity(contexto);
 
-                foreach (var ator in atoresMaisAtuantes)
-                {
-                    Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes");
-                }
                 Console.ReadKey();
+            }
+        }
+
+        private static void SelecaoEntity(FilmesContext contexto)
+        {
+            var atoresMaisAtuantes = contexto.Atores
+                                .Include(a => a.Filmografia)
+                                .OrderByDescending(a => a.Filmografia.Count)
+                                .Take(5);
+
+            foreach (var ator in atoresMaisAtuantes)
+            {
+                Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes");
             }
         }
     }
